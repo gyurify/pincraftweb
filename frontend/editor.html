@@ -44,6 +44,10 @@
 
     <div class="editor-main">
         
+        <input type="radio" id="tab-t1" name="layer-tabs" checked hidden>
+        <input type="radio" id="tab-t2" name="layer-tabs" hidden>
+        <input type="radio" id="tab-p" name="layer-tabs" hidden>
+
         <main class="workspace-area">
             
             <div class="canvas-wrapper">
@@ -68,74 +72,79 @@
             </div>
 
             <div class="bottom-layer-tabs">
-                <input type="radio" id="tab-t1" name="layer-tabs" hidden>
                 <label for="tab-t1" class="layer-tab">Text 1</label>
-                
-                <input type="radio" id="tab-t2" name="layer-tabs" hidden disabled>
-                <label for="tab-t2" class="layer-tab disabled-tab">Text 2</label>
-
-                <input type="radio" id="tab-trt" name="layer-tabs" hidden>
-                <label for="tab-trt" class="layer-tab">Text Round Top</label>
-
-                <input type="radio" id="tab-trb" name="layer-tabs" hidden>
-                <label for="tab-trb" class="layer-tab">Text Round Bottom</label>
-
-                <input type="radio" id="tab-p" name="layer-tabs" checked hidden>
+                <label for="tab-t2" class="layer-tab">Text 2</label>
                 <label for="tab-p" class="layer-tab">Photo</label>
             </div>
         </main>
 
         <aside class="properties-sidebar">
             
-            <div class="property-section">
-                <h3 class="section-title">Image</h3>
+            <div class="sidebar-top-header">
+                <h2 class="panel-title">Layer Properties</h2>
+                <span class="panel-subtitle" id="sub-t1">Text 1</span>
+                <span class="panel-subtitle" id="sub-t2">Text 2</span>
+                <span class="panel-subtitle" id="sub-p">Photo Layer</span>
+            </div>
+
+            <div class="property-section text-property-section">
+                <h3 class="section-title with-pill pill-blue">Text</h3>
                 
-                <div class="row-group">
-                    <div class="input-group half">
-                        <button class="secondary-btn" style="padding: 10px;">Replace</button>
-                    </div>
-                    <div class="input-group half">
-                        <button class="secondary-btn" style="padding: 10px;">Center Photo</button>
-                    </div>
+                <div class="input-group">
+                    <input type="text" value="SUMMER VIBES" class="pro-input">
                 </div>
                 
-                <div class="row-group">
-                    <div class="input-group half">
-                        <label>Opacity (%)</label>
-                        <input type="number" value="100" class="pro-input">
-                    </div>
-                    <div class="input-group half">
-                        <label>Blend Mode</label>
-                        <select class="pro-select">
-                            <option>Normal</option>
-                            <option>Multiply</option>
-                            <option>Overlay</option>
-                        </select>
+                <div class="input-group">
+                    <label class="pro-label">Font Family</label>
+                    <select class="pro-input pro-select">
+                        <option>SF Pro Display</option>
+                        <option>Helvetica Neue</option>
+                        <option>Futura</option>
+                    </select>
+                </div>
+
+                <div class="input-group">
+                    <label class="pro-label">Color</label>
+                    <div class="color-picker-flex">
+                        <div class="color-swatch-box" style="background: #1d1d1f;"></div>
+                        <input type="text" value="#1D1D1F" class="pro-input hex-input">
                     </div>
                 </div>
             </div>
 
             <div class="property-section">
-                <h3 class="section-title">Transform</h3>
-                <div class="row-group">
-                    <div class="input-group half">
-                        <label>X Position</label>
-                        <input type="number" value="0" class="pro-input">
+                <h3 class="section-title with-pill pill-purple">Transform</h3>
+                
+                <div class="slider-group">
+                    <div class="slider-header">
+                        <label class="pro-label">Size</label>
+                        <span class="slider-val">32px</span>
                     </div>
-                    <div class="input-group half">
-                        <label>Y Position</label>
-                        <input type="number" value="0" class="pro-input">
-                    </div>
+                    <input type="range" min="10" max="100" value="32" class="blue-slider">
                 </div>
-                <div class="row-group">
-                    <div class="input-group half">
-                        <label>Scale (%)</label>
-                        <input type="number" value="100" class="pro-input">
+
+                <div class="slider-group">
+                    <div class="slider-header">
+                        <label class="pro-label">Rotation</label>
+                        <span class="slider-val">0°</span>
                     </div>
-                    <div class="input-group half">
-                        <label>Rotation (°)</label>
-                        <input type="number" value="0" class="pro-input">
+                    <input type="range" min="-180" max="180" value="0" class="blue-slider">
+                </div>
+
+                <div class="slider-group">
+                    <div class="slider-header">
+                        <label class="pro-label">Stretch</label>
+                        <span class="slider-val">100%</span>
                     </div>
+                    <input type="range" min="50" max="200" value="100" class="blue-slider">
+                </div>
+
+                <div class="slider-group">
+                    <div class="slider-header">
+                        <label class="pro-label">Transparency</label>
+                        <span class="slider-val">100%</span>
+                    </div>
+                    <input type="range" min="0" max="100" value="100" class="blue-slider">
                 </div>
             </div>
 
@@ -155,23 +164,17 @@
                         <span class="layer-name">Text 2</span>
                     </div>
 
-                    <div class="layer-item">
-                        <div class="layer-visibility"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg></div>
-                        <span class="layer-name">Text Round Top</span>
-                    </div>
-
-                    <div class="layer-item">
-                        <div class="layer-visibility"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg></div>
-                        <span class="layer-name">Text Round Bottom</span>
-                    </div>
-
                     <div class="layer-item active-layer-item">
                         <div class="layer-visibility"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg></div>
                         <span class="layer-name">Photo Layer</span>
                     </div>
+
                 </div>
             </div>
+
         </aside>
+
     </div>
+
 </body>
 </html>
